@@ -1452,6 +1452,9 @@ public class LocaleController {
         if (value == null) {
             value = "LOC_ERR:" + key;
         }
+        if (value != null) {
+            value = value.replace("Telegram", "Soneta");
+        }
         return value;
     }
 
@@ -1462,6 +1465,9 @@ public class LocaleController {
             if (resourceId != 0) {
                 value = ApplicationLoader.applicationContext.getString(resourceId);
             }
+        }
+        if (value != null) {
+            value = value.replace("Telegram", "Soneta");
         }
         return value;
     }
@@ -1617,6 +1623,7 @@ public class LocaleController {
             }
             value = value.replace("%d", "%1$s");
             value = value.replace("%1$d", "%1$s");
+            value = value.replace("Telegram", "Soneta");
 
             Object[] a = new Object[(args == null ? 0 : args.length) + 1];
             for (int i = 0; i < a.length; ++i) {
@@ -1694,9 +1701,9 @@ public class LocaleController {
             }
 
             if (getInstance().currentLocale != null) {
-                return String.format(getInstance().currentLocale, value, args);
+                return String.format(getInstance().currentLocale, value.replace("Telegram", "Soneta"), args);
             } else {
-                return String.format(value, args);
+                return String.format(value.replace("Telegram", "Soneta"), args);
             }
         } catch (Exception e) {
             FileLog.e(e);
@@ -1742,7 +1749,7 @@ public class LocaleController {
                 }
             }
 
-            SpannableStringBuilder builder = new SpannableStringBuilder(value);
+            SpannableStringBuilder builder = new SpannableStringBuilder(value.replace("Telegram", "Soneta"));
             for (int i = 0; i < args.length; i++) {
                 String formatter = "s";
                 CharSequence replaceWith = "";
