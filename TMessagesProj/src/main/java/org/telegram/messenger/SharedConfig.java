@@ -1554,10 +1554,10 @@ public class SharedConfig {
     public static void checkSaveToGalleryFiles() {
         Utilities.globalQueue.postRunnable(() -> {
             try {
-                File telegramPath = new File(Environment.getExternalStorageDirectory(), "Telegram");
-                File imagePath = new File(telegramPath, "Telegram Images");
+                File telegramPath = new File(Environment.getExternalStorageDirectory(), "Soneta");
+                File imagePath = new File(telegramPath, "Soneta Images");
                 imagePath.mkdir();
-                File videoPath = new File(telegramPath, "Telegram Video");
+                File videoPath = new File(telegramPath, "Soneta Video");
                 videoPath.mkdir();
 
                 if (!BuildVars.NO_SCOPED_STORAGE) {
